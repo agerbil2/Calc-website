@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StudyKit – GCSE &amp; A-Level toolkit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f5f6f0;--card:#fff;--ink:#14213d;--mut:#6b7488;--line:#e1e4dc;--acc:#2f4bff;--accink:#fff;--hi:#ffd84d;--key:#eef0ea;--ok:#12a150}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1424;--card:#171e35;--ink:#eef1ff;--mut:#97a1bf;--line:#26304f;--acc:#6f86ff;--accink:#0f1424;--key:#202945}}
+:root[data-theme="dark"]{--bg:#0f1424;--card:#171e35;--ink:#eef1ff;--mut:#97a1bf;--line:#26304f;--acc:#6f86ff;--accink:#0f1424;--key:#202945}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.4 "Bricolage Grotesque",system-ui,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:14px 14px 90px}
+header{display:flex;align-items:center;justify-content:space-between;margin:4px 0 10px}
+h1{font-size:26px;margin:0;font-weight:800;letter-spacing:-.5px}
+h1 span{background:var(--hi);color:#14213d;padding:0 6px;border-radius:6px}
+button{font:inherit;color:inherit;cursor:pointer;border:0}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.ic{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+.ad{border:1px dashed var(--mut);border-radius:10px;color:var(--mut);text-align:center;padding:14px 8px;font-size:12px;margin:12px 0;min-height:60px;display:flex;align-items:center;justify-content:center}
+nav{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:700;color:var(--mut)}
+nav button[aria-selected=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+section{display:none}section.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px}
+h2{font-size:17px;margin:0 0 10px;font-weight:800}
+label{display:block;font-size:12px;color:var(--mut);margin:8px 0 4px}
+input,select{width:100%;font:inherit;background:var(--key);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px}
+.row{display:flex;gap:8px}.row>*{flex:1}
+.btn{background:var(--acc);color:var(--accink);border-radius:12px;padding:11px 14px;font-weight:700;margin-top:10px;width:100%}
+.btn.alt{background:var(--key);color:var(--ink)}
+.res{margin-top:10px;background:var(--key);border-radius:12px;padding:10px 12px;font-weight:700;min-height:20px;word-break:break-word}
+.disp{background:var(--ink);color:var(--bg);border-radius:16px;padding:12px 14px;text-align:right;margin-bottom:10px}
+.disp .ex{font-size:14px;opacity:.7;min-height:20px;overflow-x:auto;white-space:nowrap}
+.disp .rs{font-size:34px;font-weight:800;min-height:44px;overflow-x:auto}
+.keys{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.keys button{background:var(--key);border-radius:12px;padding:13px 0;font-weight:700;font-size:16px}
+.keys .op{background:var(--card);border:1px solid var(--line)}
+.keys .eq{background:var(--acc);color:var(--accink)}
+.keys .cl{background:var(--hi);color:#14213d}
+.seg{display:flex;background:var(--key);border-radius:10px;padding:3px;gap:3px;margin-bottom:10px}
+.seg button{flex:1;background:none;border-radius:8px;padding:7px;font-weight:700;color:var(--mut)}
+.seg button.on{background:var(--card);color:var(--ink)}
+.big{font-size:54px;font-weight:800;text-align:center;letter-spacing:-1px;font-variant-numeric:tabular-nums;margin:6px 0}
+.clk{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.clk:last-child{border:0}.clk b{font-size:22px;font-variant-numeric:tabular-nums}.clk small{color:var(--mut);display:block}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips button{background:var(--key);border-radius:999px;padding:6px 12px;font-weight:700}
+.formula{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.formula:last-child{border:0}.formula span:first-child{color:var(--mut)}.formula span:last-child{text-align:right;font-weight:700}
+.todo{display:flex;gap:8px;align-items:center;padding:6px 0}.todo input[type=checkbox]{width:20px;height:20px}
+.todo.d span{text-decoration:line-through;color:var(--mut)}
+</style></head><body><div class="wrap">
+<header><h1>Study<span>Kit</span></h1><button class="ic" id="theme" aria-label="Toggle dark mode">🌓</button></header>
+<div class="ad" id="adTop">Advert space (banner)</div>
+<nav role="tablist" id="tabs"></nav>
+
+<section id="calc" class="on">
+ <div class="seg" id="lvl"><button class="on" data-v="gcse">GCSE</button><button data-v="alevel">A-Level</button></div>
+ <div class="seg" id="ang"><button class="on" data-v="deg">Degrees</button><button data-v="rad">Radians</button></div>
+ <div class="disp"><div class="ex" id="ex"></div><div class="rs" id="rs">0</div></div>
+ <div class="keys" id="keys"></div>
+</section>
+
+<section id="maths">
+ <div class="card"><h2>Quadratic solver</h2><div class="row"><div><label>a</label><input id="qa" type="number" value="1"></div><div><label>b</label><input id="qb" type="number" value="-5"></div><div><label>c</label><input id="qc" type="number" value="6"></div></div>
+ <button class="btn" onclick="quad()">Solve ax² + bx + c = 0</button><div class="res" id="qr">–</div></div>
+ <div class="card"><h2>Averages</h2><label>Numbers separated by commas</label><input id="st" value="4, 8, 8, 15, 21"><button class="btn" onclick="stats()">Calculate</button><div class="res" id="sr">–</div></div>
+ <div class="card"><h2>Percentages</h2><div class="row"><div><label>Original</label><input id="p1" type="number" value="80"></div><div><label>New</label><input id="p2" type="number" value="100"></div></div>
+ <button class="btn" onclick="pct()">Percentage change</button><div class="res" id="pr">–</div></div>
+ <div class="card"><h2>Pythagoras</h2><div class="row"><div><label>a</label><input id="ya" type="number" value="3"></div><div><label>b</label><input id="yb" type="number" value="4"></div></div>
+ <button class="btn" onclick="pyth()">Find hypotenuse c</button><div class="res" id="yr">–</div></div>
+ <div class="card"><h2>A-Level: differentiate &amp; integrate</h2><label>Polynomial in x (e.g. 3x^2+2x-5)</label><input id="pl" value="3x^2+2x-5">
+ <div class="row"><button class="btn" onclick="poly('d')">d/dx</button><button class="btn" onclick="poly('i')">∫ dx</button></div><div class="res" id="plr">–</div></div>
+</section>
+
+<section id="timer">
+ <div class="card"><h2>Study timer</h2><div class="big" id="td">25:00</div>
+ <div class="chips" id="pre"></div><label>Custom minutes</label><input id="tm" type="number" min="1" value="25">
+ <div class="row"><button class="btn" id="ts">Start</button><button class="btn alt" id="tr">Reset</button></div><div class="res" id="tn">Tip: 25 min focus, 5 min break.</div></div>
+ <div class="card"><h2>Stopwatch</h2><div class="big" id="sw">00:00.0</div>
+ <div class="row"><button class="btn" id="ss">Start</button><button class="btn alt" id="sl">Lap</button><button class="btn alt" id="sx">Reset</button></div><div class="res" id="laps">No laps yet</div></div>
+</section>
+
+<section id="world">
+ <div class="card"><h2>Universal time</h2><div id="clks"></div></div>
+ <div class="card"><h2>Add a city</h2><select id="zs"></select><button class="btn" onclick="addZ()">Add clock</button></div>
+</section>
+
+<section id="grades">
+ <div class="card"><h2>Mark to percentage</h2><div class="row"><div><label>Marks scored</label><input id="g1" type="number" value="52"></div><div><label>Out of</label><input id="g2" type="number" value="80"></div></div>
+ <button class="btn" onclick="grade()">Work it out</button><div class="res" id="gr">–</div></div>
+ <div class="card"><h2>Average of your tests</h2><label>Percentages, separated by commas</label><input id="ga" value="62, 71, 58, 80"><button class="btn" onclick="avg()">Average</button><div class="res" id="gar">–</div></div>
+ <div class="card"><h2>Homework list</h2><div class="row"><input id="ti" placeholder="Add a task"><button class="btn" style="flex:none;width:80px;margin:0" onclick="addT()">Add</button></div><div id="tl"></div></div>
+</section>
+
+<section id="units">
+ <div class="card"><h2>Unit converter</h2><select id="ut" onchange="uInit()"></select>
+ <div class="row"><div><label>From</label><select id="uf"></select></div><div><label>To</label><select id="uo"></select></div></div>
+ <label>Value</label><input id="uv" type="number" value="1" oninput="uc()"><div class="res" id="ur">–</div></div>
+</section>
+
+<section id="ref">
+ <div class="card"><h2>Maths formulas</h2><div id="f1"></div></div>
+ <div class="card"><h2>Physics equations</h2><div id="f2"></div></div>
+ <div class="card"><h2>Useful constants</h2><div id="f3"></div></div>
+</section>
+
+<div class="ad" id="adBot">Advert space (bottom banner)</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+// theme
+$('theme').onclick=()=>{const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;r.dataset.theme=dark?'light':'dark';store.set('th',r.dataset.theme)};
+{const t=store.get('th',null);if(t)document.documentElement.dataset.theme=t}
+// tabs
+const T=[['calc','Calculator'],['maths','Maths tools'],['timer','Timers'],['world','World time'],['grades','Grades'],['units','Units'],['ref','Formulas']];
+T.forEach(([id,n],i)=>{const b=document.createElement('button');b.textContent=n;b.role='tab';b.setAttribute('aria-selected',i==0);b.onclick=()=>{T.forEach(([x])=>$(x).classList.toggle('on',x===id));[...$('tabs').children].forEach(c=>c.setAttribute('aria-selected',c===b))};$('tabs').appendChild(b)});
+// mouse wheel scrolls the tab bar sideways
+$('tabs').addEventListener('wheel',e=>{const n=$('tabs');if(n.scrollWidth<=n.clientWidth)return;const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;const atEnd=(d>0&&n.scrollLeft+n.clientWidth>=n.scrollWidth-1)||(d<0&&n.scrollLeft<=0);if(atEnd)return;e.preventDefault();n.scrollLeft+=d},{passive:false});
+// calculator
+let ex='',ans=0,lvl='gcse',deg=true;
+const G=[['sin(','sin'],['cos(','cos'],['tan(','tan'],['√(','√'],['^','xʸ'],['(','('],[')',')'],['π','π'],['!','n!'],['AC','AC'],['7'],['8'],['9'],['÷'],['⌫'],['4'],['5'],['6'],['×'],['Ans'],['1'],['2'],['3'],['-'],['+'],['0'],['.'],['10^(','×10ˣ'],['=','=']];
+const A=[['ln(','ln'],['log(','log'],['e','e'],['asin(','sin⁻¹'],['acos(','cos⁻¹'],['atan(','tan⁻¹'],['sinh(','sinh'],['cosh(','cosh'],['C','nCr'],['P','nPr']];
+function drawKeys(){const k=$('keys');k.innerHTML='';const all=lvl==='alevel'?A.concat(G):G;all.forEach(([v,l])=>{const b=document.createElement('button');b.textContent=l||v;if('÷×-+^'.includes(v))b.className='op';if(v==='=')b.className='eq';if(v==='AC'||v==='⌫')b.className='cl';b.onclick=()=>press(v);k.appendChild(b)})}
+function press(v){if(v==='AC'){ex='';$('rs').textContent='0'}else if(v==='⌫')ex=ex.replace(/(asin|acos|atan|sinh|cosh|sin|cos|tan|ln|log|nCr|nPr)\($|Ans$|10\^\($|.$/,'');else if(v==='='){calc();return}else if(v==='C'||v==='P')ex+='n'+v+'r(';else ex+=v==='Ans'?'Ans':v;$('ex').textContent=ex}
+const fact=n=>{if(n<0||n%1)return NaN;let r=1;for(let i=2;i<=n;i++)r*=i;return r};
+function calc(){try{
+ let s=ex.replace(/×/g,'*').replace(/÷/g,'/').replace(/\^/g,'**').replace(/π/g,'(PI)').replace(/√\(/g,'sqrt(').replace(/(\d+)!/g,'fact($1)').replace(/Ans/g,'(ans)').replace(/nCr/g,'ncr').replace(/nPr/g,'npr');
+ const chk=s.replace(/asin|acos|atan|sinh|cosh|sin|cos|tan|ln|log|sqrt|fact|ncr|npr|ans|PI|e/g,'');
+ if(!/^[0-9+\-*/().,\s]*$/.test(chk))throw 0;
+ const d=deg?Math.PI/180:1,f=new Function('sin','cos','tan','asin','acos','atan','sinh','cosh','ln','log','sqrt','fact','ncr','npr','ans','PI','e','"use strict";return ('+s+')');
+ const r=f(x=>Math.sin(x*d),x=>Math.cos(x*d),x=>Math.tan(x*d),x=>Math.asin(x)/d,x=>Math.acos(x)/d,x=>Math.atan(x)/d,Math.sinh,Math.cosh,Math.log,Math.log10,Math.sqrt,fact,(n,r)=>fact(n)/(fact(r)*fact(n-r)),(n,r)=>fact(n)/fact(n-r),ans,Math.PI,Math.E);
+ if(typeof r!=='number'||!isFinite(r))throw 0;
+ ans=parseFloat(r.toPrecision(12));$('rs').textContent=ans;ex=''}catch(e){$('rs').textContent='Check your sum'}}
+$('lvl').onclick=e=>{if(!e.target.dataset.v)return;lvl=e.target.dataset.v;[...$('lvl').children].forEach(b=>b.classList.toggle('on',b===e.target));drawKeys()};
+$('ang').onclick=e=>{if(!e.target.dataset.v)return;deg=e.target.dataset.v==='deg';[...$('ang').children].forEach(b=>b.classList.toggle('on',b===e.target))};
+drawKeys();
+// maths tools
+const fx=n=>parseFloat(n.toPrecision(10));
+function quad(){const a=+$('qa').value,b=+$('qb').value,c=+$('qc').value,o=$('qr');if(!a){o.textContent='a can’t be 0';return}const D=b*b-4*a*c;
+ o.innerHTML=D>0?`x = ${fx((-b+Math.sqrt(D))/(2*a))} or x = ${fx((-b-Math.sqrt(D))/(2*a))}<br>Discriminant = ${fx(D)}`:D===0?`x = ${fx(-b/(2*a))} (repeated root)`:`No real roots (discriminant = ${fx(D)})`}
+function stats(){const n=$('st').value.split(/[,\s]+/).filter(Boolean).map(Number);if(!n.length||n.some(isNaN)){$('sr').textContent='Enter numbers only';return}
+ const s=[...n].sort((a,b)=>a-b),m=s.length>>1,med=s.length%2?s[m]:(s[m-1]+s[m])/2,cnt={};n.forEach(x=>cnt[x]=(cnt[x]||0)+1);const mx=Math.max(...Object.values(cnt)),mode=Object.keys(cnt).filter(k=>cnt[k]===mx);
+ $('sr').innerHTML=`Mean ${fx(n.reduce((a,b)=>a+b)/n.length)}<br>Median ${med}<br>Mode ${mx>1?mode.join(', '):'none'}<br>Range ${s[s.length-1]-s[0]}`}
+function pct(){const a=+$('p1').value,b=+$('p2').value;if(!a){$('pr').textContent='Original can’t be 0';return}const c=(b-a)/a*100;$('pr').textContent=`${c>=0?'Increase':'Decrease'} of ${fx(Math.abs(c))}%`}
+function pyth(){const a=+$('ya').value,b=+$('yb').value;$('yr').textContent=`c = ${fx(Math.hypot(a,b))}`}
+function parse(s){const t=s.replace(/\s/g,'').replace(/-/g,'+-').split('+').filter(Boolean),r=[];for(const p of t){const m=p.match(/^(-?\d*\.?\d*)(x(\^(-?\d+))?)?$/);if(!m)return null;let c=m[1]==='-'?-1:m[1]===''?1:+m[1];r.push([c,m[2]?(m[4]!==undefined?+m[4]:1):0])}return r}
+function fmt(a){const o=a.filter(t=>t[0]!==0).map(([c,e],i)=>{const k=fx(c),ab=Math.abs(k),x=e===0?'':e===1?'x':'x^'+e,co=(ab===1&&e!==0)?'':ab;return(k<0?'−':i?'+':'')+co+x});return o.join(' ')||'0'}
+function poly(m){const p=parse($('pl').value);if(!p){$('plr').textContent='Use terms like 3x^2+2x-5';return}
+ $('plr').textContent=m==='d'?'dy/dx = '+fmt(p.map(([c,e])=>[c*e,e-1])):'∫ = '+fmt(p.map(([c,e])=>[c/(e+1),e+1]))+' + C'}
+// timers
+const pre=$('pre');[5,15,25,45,60].forEach(m=>{const b=document.createElement('button');b.textContent=m+' min';b.onclick=()=>{$('tm').value=m;resetT()};pre.appendChild(b)});
+let tEnd=0,tLeft=25*60,tInt=null;
+const mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function resetT(){clearInterval(tInt);tInt=null;tLeft=Math.max(1,+$('tm').value||25)*60;$('td').textContent=mmss(tLeft);$('ts').textContent='Start'}
+function beep(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator();o.connect(c.destination);o.frequency.value=880;o.start();o.stop(c.currentTime+.6)}catch(e){}}
+$('ts').onclick=()=>{if(tInt){clearInterval(tInt);tInt=null;tLeft=Math.max(0,Math.round((tEnd-Date.now())/1000));$('ts').textContent='Resume';return}
+ tEnd=Date.now()+tLeft*1000;$('ts').textContent='Pause';tInt=setInterval(()=>{const l=Math.max(0,Math.round((tEnd-Date.now())/1000));$('td').textContent=mmss(l);document.title=mmss(l)+' – StudyKit';if(l<=0){clearInterval(tInt);tInt=null;tLeft=0;$('ts').textContent='Start';$('tn').textContent='Time’s up! Take a break.';beep();document.title='StudyKit'}},250)};
+$('tr').onclick=resetT;$('tm').oninput=resetT;
+let sw0=0,swAcc=0,swInt=null,lapN=[];
+const swf=ms=>{const t=Math.floor(ms/100),s=Math.floor(t/10)%60,m=Math.floor(t/600);return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+'.'+t%10};
+$('ss').onclick=()=>{if(swInt){clearInterval(swInt);swInt=null;swAcc+=Date.now()-sw0;$('ss').textContent='Start';return}sw0=Date.now();$('ss').textContent='Stop';swInt=setInterval(()=>$('sw').textContent=swf(swAcc+Date.now()-sw0),100)};
+$('sl').onclick=()=>{if(!swInt)return;lapN.push(swf(swAcc+Date.now()-sw0));$('laps').innerHTML=lapN.map((l,i)=>`Lap ${i+1}: ${l}`).reverse().join('<br>')};
+$('sx').onclick=()=>{clearInterval(swInt);swInt=null;swAcc=0;lapN=[];$('sw').textContent='00:00.0';$('ss').textContent='Start';$('laps').textContent='No laps yet'};
+// world clocks
+const ZN=[['UTC','UTC (universal time)'],['Europe/London','London'],['America/New_York','New York'],['America/Los_Angeles','Los Angeles'],['Asia/Dubai','Dubai'],['Asia/Kolkata','Mumbai'],['Asia/Singapore','Singapore'],['Asia/Tokyo','Tokyo'],['Australia/Sydney','Sydney'],['Pacific/Auckland','Auckland'],['Europe/Paris','Paris'],['Africa/Lagos','Lagos'],['America/Toronto','Toronto'],['America/Sao_Paulo','São Paulo']];
+let zs=store.get('zs',['UTC','Europe/London','America/New_York','Asia/Tokyo']);
+ZN.forEach(([z,n])=>{const o=document.createElement('option');o.value=z;o.textContent=n;$('zs').appendChild(o)});
+const nm=z=>(ZN.find(x=>x[0]===z)||[0,z])[1];
+function addZ(){const z=$('zs').value;if(!zs.includes(z)){zs.push(z);store.set('zs',zs)}drawZ()}
+function rmZ(z){zs=zs.filter(x=>x!==z);store.set('zs',zs);drawZ()}
+function drawZ(){$('clks').innerHTML=zs.map(z=>{const d=new Date();let t='',dt='';try{t=d.toLocaleTimeString('en-GB',{timeZone:z});dt=d.toLocaleDateString('en-GB',{timeZone:z,weekday:'short',day:'numeric',month:'short'})}catch(e){}
+ return `<div class="clk"><div>${nm(z)}<small>${dt}</small></div><div><b>${t}</b> <button class="ic" aria-label="Remove ${nm(z)}" onclick="rmZ('${z}')">✕</button></div></div>`}).join('')||'No clocks yet.'}
+drawZ();setInterval(drawZ,1000);
+// grades
+function grade(){const a=+$('g1').value,b=+$('g2').value;if(!b){$('gr').textContent='Total can’t be 0';return}const p=a/b*100,g=p>=85?9:p>=77?8:p>=69?7:p>=59?6:p>=50?5:p>=40?4:p>=30?3:p>=20?2:1;
+ $('gr').innerHTML=`${fx(p)}%<br><small>Rough GCSE grade: ${g} (boundaries change each exam, so treat this as a guide)</small>`}
+function avg(){const n=$('ga').value.split(/[,\s]+/).filter(Boolean).map(Number);if(!n.length||n.some(isNaN)){$('gar').textContent='Enter numbers only';return}$('gar').textContent=fx(n.reduce((a,b)=>a+b)/n.length)+'% average'}
+let todo=store.get('todo',[]);
+function drawT(){$('tl').innerHTML=todo.map((t,i)=>`<label class="todo ${t.d?'d':''}" style="margin:0;color:var(--ink);font-size:15px"><input type="checkbox" ${t.d?'checked':''} onchange="tg(${i})"><span style="flex:1">${t.t.replace(/[<&]/g,c=>c==='<'?'&lt;':'&amp;')}</span><button class="ic" type="button" onclick="dl(${i})" aria-label="Delete">✕</button></label>`).join('')||'<small style="color:var(--mut)">Nothing to do. Add your first task above.</small>'}
+function addT(){const v=$('ti').value.trim();if(!v)return;todo.push({t:v,d:0});$('ti').value='';store.set('todo',todo);drawT()}
+function tg(i){todo[i].d=!todo[i].d;store.set('todo',todo);drawT()}function dl(i){todo.splice(i,1);store.set('todo',todo);drawT()}drawT();
+// units
+const U={Length:{m:1,km:1000,cm:.01,mm:.001,mile:1609.344,yard:.9144,foot:.3048,inch:.0254},Mass:{kg:1,g:.001,mg:1e-6,tonne:1000,lb:.45359237,oz:.0283495},Time:{s:1,min:60,hour:3600,day:86400,week:604800},Volume:{L:1,mL:.001,'cm³':.001,'m³':1000,pint:.568261,gallon:4.54609},Speed:{'m/s':1,'km/h':1/3.6,mph:.44704,knot:.514444},Temperature:{'°C':0,'°F':0,K:0}};
+Object.keys(U).forEach(k=>{const o=document.createElement('option');o.textContent=k;$('ut').appendChild(o)});
+function uInit(){const u=Object.keys(U[$('ut').value]);['uf','uo'].forEach((id,j)=>{$(id).innerHTML=u.map(x=>`<option>${x}</option>`).join('');$(id).selectedIndex=Math.min(j,u.length-1);$(id).onchange=uc});uc()}
+function uc(){const t=$('ut').value,v=+$('uv').value,f=$('uf').value,o=$('uo').value;let r;
+ if(t==='Temperature'){const c=f==='°C'?v:f==='°F'?(v-32)*5/9:v-273.15;r=o==='°C'?c:o==='°F'?c*9/5+32:c+273.15}else r=v*U[t][f]/U[t][o];
+ $('ur').textContent=`${v} ${f} = ${fx(r)} ${o}`}
+uInit();
+// reference
+const R=(id,a)=>$(id).innerHTML=a.map(([x,y])=>`<div class="formula"><span>${x}</span><span>${y}</span></div>`).join('');
+R('f1',[['Quadratic formula','x = (−b ± √(b²−4ac)) / 2a'],['Area of circle','πr²'],['Circumference','2πr'],['Pythagoras','a² + b² = c²'],['Sine rule','a/sinA = b/sinB'],['Cosine rule','a² = b² + c² − 2bc cosA'],['Area of triangle','½ab sinC'],['Volume of sphere','4/3 πr³'],['Volume of cone','⅓πr²h'],['Gradient','(y₂−y₁)/(x₂−x₁)'],['Compound interest','P(1 + r/100)ⁿ'],['Differentiate','xⁿ → nxⁿ⁻¹'],['Integrate','xⁿ → xⁿ⁺¹/(n+1) + C']]);
+R('f2',[['Speed','distance ÷ time'],['Density','mass ÷ volume'],['Force','F = ma'],['Weight','W = mg'],['Pressure','force ÷ area'],['Work done','force × distance'],['Power','energy ÷ time'],['Ohm’s law','V = IR'],['Kinetic energy','½mv²'],['GPE','mgh'],['Wave speed','v = fλ'],['SUVAT','v = u + at; s = ut + ½at²']]);
+R('f3',[['π','3.14159265'],['g (gravity)','9.81 m/s²'],['Speed of light','3.00 × 10⁸ m/s'],['Avogadro','6.02 × 10²³ /mol'],['e','2.71828183'],['Planck','6.63 × 10⁻³⁴ J s']]);
+</script></body></html>
